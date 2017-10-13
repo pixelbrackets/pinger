@@ -16,7 +16,8 @@
 **This project is under development, it is recommended to wait with usage for stable release (soon).**
 
 Tiny PHP library used to ping desired URLs. You can use proxy list to ping as from different computer making this tool
-handy when you wan to test the server load from different IPs. Use at your own risk.
+handy when you wan to test the server load from different IPs. Use at your own risk, you can DDoS yourself or get
+blacklisted for attacking another server.
 
 The user agent is generated from random numbers so the server is tricked to be believing that each request came from
 different computer (although from same IP if no proxy list specified).
@@ -61,24 +62,16 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_RANDOM);
+Pinger::run($urls, 2, 1, Pinger::MODE_RANDOM);
 ```
 result:
 ```text
 ping: http://localhost/003
+ping: http://localhost/0004
 ping: http://localhost/003
 ping: http://localhost/1
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/0004
 ping: http://localhost/0004
 ping: http://localhost/1
-ping: http://localhost/0004
-ping: http://localhost/02
 ping: http://localhost/02
 ping: http://localhost/02
 ```
@@ -92,26 +85,18 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_RANDOM_NOREPEAT);
+Pinger::run($urls, 2, 1, Pinger::MODE_RANDOM_NOREPEAT);
 ```
 result:
 ```text
-ping: http://localhost/02
-ping: http://localhost/0004
 ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/1
-ping: http://localhost/003
-ping: http://localhost/1
-ping: http://localhost/02
 ping: http://localhost/003
 ping: http://localhost/0004
 ping: http://localhost/02
-ping: http://localhost/0004
 ping: http://localhost/003
 ping: http://localhost/0004
 ping: http://localhost/1
-ping: http://localhost/003
+ping: http://localhost/02
 ```
 
 #### Batch URL
@@ -123,32 +108,16 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_BATCH_URL);
+Pinger::run($urls, 2, 1, Pinger::MODE_BATCH_URL);
 ```
 result:
 ```text
 ping: http://localhost/1
 ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/02
-ping: http://localhost/02
-ping: http://localhost/02
 ping: http://localhost/02
 ping: http://localhost/02
 ping: http://localhost/003
 ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/0004
-ping: http://localhost/0004
-ping: http://localhost/0004
 ping: http://localhost/0004
 ping: http://localhost/0004
 ```
@@ -162,26 +131,10 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_BATCH_ARRAY);
+Pinger::run($urls, 2, 1, Pinger::MODE_BATCH_ARRAY);
 ```
 result:
 ```text
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
 ping: http://localhost/1
 ping: http://localhost/02
 ping: http://localhost/003

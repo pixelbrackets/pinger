@@ -55,8 +55,8 @@ class Pinger
      * @param bool $verbose
      * @return void
      */
-    public static function run($urls, $repeat, $wait, $mode = self::MODE_RANDOM, $getData = array(),
-                               $postData = array(), $verbose = false)
+    public static function run($urls, $repeat, $wait, $mode = self::MODE_RANDOM,
+                               $postData = array(), $getData = array(), $verbose = false)
     {
         $pinger = new self();
 
@@ -112,7 +112,9 @@ class Pinger
         if ($this->isVerbose()) {
             print('ping: ' . $url . PHP_EOL);
         }
-        shell_exec('php ping.php ' . $url . ' &');
+
+        $pingPath = realpath(dirname(__FILE__). '/Ping.php');
+        shell_exec('php '. $pingPath .' '. $url . '  >log.txt 2>log.txt &');
         usleep($this->wait * 1000000);
     }
 
@@ -344,10 +346,18 @@ class Pinger
     /**
      * @param array $getData
      * @return $this
+     * @throws PingerException
      */
     public function setGetData($getData)
     {
-        $this->getData = $getData;
+        if($getData === null){
+            return $this;
+        }
+
+        if(!is_array($getData)){
+            throw new PingerException('GET data should be in array');
+        }
+        $this->getData = http_build_query($getData);
         return $this;
     }
 
@@ -361,10 +371,19 @@ class Pinger
 
     /**
      * @param array $postData
+     * @return $this
+     * @throws PingerException
      */
     public function setPostData($postData)
     {
-        $this->postData = $postData;
+        if($postData === null){
+            return $this;
+        }
+
+        if(!is_array($postData)){
+            throw new PingerException('POST data should be in array');
+        }
+        $this->postData = http_build_query($postData);
         return $this;
     }
 
