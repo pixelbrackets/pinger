@@ -16,7 +16,8 @@
 **This project is under development, it is recommended to wait with usage for stable release (soon).**
 
 Tiny PHP library used to ping desired URLs. You can use proxy list to ping as from different computer making this tool
-handy when you wan to test the server load from different IPs. Use at your own risk.
+handy when you wan to test the server load from different IPs. Use at your own risk, you can DDoS yourself or get
+blacklisted for attacking another server.
 
 The user agent is generated from random numbers so the server is tricked to be believing that each request came from
 different computer (although from same IP if no proxy list specified).
