@@ -116,6 +116,24 @@ class Pinger
         usleep($this->wait * 1000000);
     }
 
+    /**
+     * Checks for valid URLs with regexp.
+     *
+     * @see https://regex101.com/r/cX0pJ8/1
+     * @param $urls
+     * @return void
+     * @throws PingerException
+     */
+    protected function checkUrls($urls)
+    {
+        foreach ($urls as $url) {
+            if (!preg_match_all('/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+
+            @)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[.\!\/\\w]*))?)/i', $url)) {
+                throw new PingerException('URL is in incorrect format: ' . $url);
+            }
+        }
+    }
+
 
     /**
      * Mode Random
@@ -269,23 +287,6 @@ class Pinger
         return $this;
     }
 
-    /**
-     * Checks for valid URLs with regexp.
-     *
-     * @see https://regex101.com/r/cX0pJ8/1
-     * @param $urls
-     * @return void
-     * @throws PingerException
-     */
-    protected function checkUrls($urls)
-    {
-        foreach ($urls as $url) {
-            if (!preg_match_all('/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+
-            @)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[.\!\/\\w]*))?)/i', $url)) {
-                throw new PingerException('URL is in incorrect format: ' . $url);
-            }
-        }
-    }
 
     /**
      * @return int
