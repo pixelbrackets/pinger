@@ -1,4 +1,7 @@
 # Pinger
+[![Travis branch](https://img.shields.io/travis/raitocz/pinger/master.svg?style=flat-square)](https://github.com/raitocz/pinger)
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/raitocz/pinger.svg?style=flat-square)](https://github.com/raitocz/pinger)
+[![license](https://img.shields.io/github/license/raitocz/pinger.svg?style=flat-square)](https://github.com/raitocz/pinger)
 
 - [Installation](#installation)
 - [Introduction](#introduction)
