@@ -39,8 +39,8 @@ class PingerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($repeat, $pinger->getRepeat());
         $this->assertEquals($wait, $pinger->getWait());
         $this->assertEquals($mode, $pinger->getMode());
-        $this->assertEquals($getData, $pinger->getGetData());
-        $this->assertEquals($postData, $pinger->getPostData());
+        $this->assertEquals(http_build_query($getData), $pinger->getGetData());
+        $this->assertEquals(http_build_query($postData), $pinger->getPostData());
         $this->assertEquals($verbose, $pinger->isVerbose());
     }
 
