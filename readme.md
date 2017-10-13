@@ -1,4 +1,5 @@
 # Pinger
+[![Build Status](https://travis-ci.org/raitocz/pinger.svg?branch=develop)](https://travis-ci.org/raitocz/pinger)
 
 - [Installation](#installation)
 - [Introduction](#introduction)

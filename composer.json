@@ -1,6 +1,6 @@
 {
     "name": "raitocz/pinger",
-    "description": "Tiny PHP script to ping designed URLs",
+    "description": "Tiny PHP library used to ping desired URLs",
     "license": "MIT",
     "authors": [
         {
