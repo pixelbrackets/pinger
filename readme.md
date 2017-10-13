@@ -61,24 +61,16 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_RANDOM);
+Pinger::run($urls, 2, 1, Pinger::MODE_RANDOM);
 ```
 result:
 ```text
 ping: http://localhost/003
+ping: http://localhost/0004
 ping: http://localhost/003
 ping: http://localhost/1
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/0004
 ping: http://localhost/0004
 ping: http://localhost/1
-ping: http://localhost/0004
-ping: http://localhost/02
 ping: http://localhost/02
 ping: http://localhost/02
 ```
@@ -92,26 +84,18 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_RANDOM_NOREPEAT);
+Pinger::run($urls, 2, 1, Pinger::MODE_RANDOM_NOREPEAT);
 ```
 result:
 ```text
-ping: http://localhost/02
-ping: http://localhost/0004
 ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/1
-ping: http://localhost/003
-ping: http://localhost/1
-ping: http://localhost/02
 ping: http://localhost/003
 ping: http://localhost/0004
 ping: http://localhost/02
-ping: http://localhost/0004
 ping: http://localhost/003
 ping: http://localhost/0004
 ping: http://localhost/1
-ping: http://localhost/003
+ping: http://localhost/02
 ```
 
 #### Batch URL
@@ -123,32 +107,16 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_BATCH_URL);
+Pinger::run($urls, 2, 1, Pinger::MODE_BATCH_URL);
 ```
 result:
 ```text
 ping: http://localhost/1
 ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/02
-ping: http://localhost/02
-ping: http://localhost/02
 ping: http://localhost/02
 ping: http://localhost/02
 ping: http://localhost/003
 ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/0004
-ping: http://localhost/0004
-ping: http://localhost/0004
 ping: http://localhost/0004
 ping: http://localhost/0004
 ```
@@ -162,26 +130,10 @@ $urls = array(
     'http://localhost/0004',    
 );
 
-Pinger::run($urls, 5, 1, Pinger::MODE_BATCH_ARRAY);
+Pinger::run($urls, 2, 1, Pinger::MODE_BATCH_ARRAY);
 ```
 result:
 ```text
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
-ping: http://localhost/1
-ping: http://localhost/02
-ping: http://localhost/003
-ping: http://localhost/0004
 ping: http://localhost/1
 ping: http://localhost/02
 ping: http://localhost/003
