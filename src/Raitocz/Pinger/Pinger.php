@@ -115,7 +115,7 @@ class Pinger
 
         $pingPath = realpath(dirname(__FILE__) . '/Ping.php');
         // run process in background (trailing "&")
-        shell_exec('php ' . $pingPath . ' ' . $url . ' >/dev/null 2>&1 &');
+        shell_exec('php ' . escapeshellarg($pingPath) . ' ' . $url . ' >/dev/null 2>&1 &');
         usleep($this->wait * 1000000);
     }
 
