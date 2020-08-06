@@ -129,8 +129,8 @@ class Pinger
     protected function checkUrls($urls)
     {
         foreach ($urls as $url) {
-            if (!preg_match_all('/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+
-            @)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[.\!\/\\w]*))?)/i', $url)) {
+          if (!preg_match_all('/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[\-;:&=\+\$,\w]+
+            @)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w\-_]*)?\??(?:[\-\+=&;%@.\w_]*)#?(?:[.\!\/\\w]*))?)/i', $url)) {
                 throw new PingerException('URL is in incorrect format: ' . $url);
             }
         }
